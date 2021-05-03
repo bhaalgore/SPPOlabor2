@@ -1,22 +1,20 @@
-#include "cppmethodunit.h"
+#include "csharpmethodunit.h"
 
-cppMethodUnit::cppMethodUnit(const std::string& name, const std::string& returnType, Flags flags ) :
+csharpMethodUnit::csharpMethodUnit(const std::string& name, const std::string& returnType, Unit::Flags flags ) :
                               m_name( name ), m_returnType( returnType ), m_flags( flags )
 {
 
 }
 
-void cppMethodUnit::add( const std::shared_ptr< Unit >& unit, Flags /* flags */= 0) {
+void csharpMethodUnit::add( const std::shared_ptr< Unit >& unit, Unit::Flags flags = 0) {
 m_body.push_back( unit );
 }
 
-std::string cppcompile( unsigned int level = 0 ) const
+/*std::string csharpMethodUnit::compile( unsigned int level = 0 ) const
 {
  std::string result = generateShift( level );
  if( m_flags & STATIC ) {
  result += "static ";
- } else if( m_flags & VIRTUAL ) {
- result += "virtual ";
  }
  result += m_returnType + " ";
  result += m_name + "()";
@@ -29,4 +27,4 @@ std::string cppcompile( unsigned int level = 0 ) const
  }
  result += generateShift( level ) + "}\n";
  return result;
- }
+ }*/
