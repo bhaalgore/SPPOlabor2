@@ -1,6 +1,34 @@
 #include "csharpclassunit.h"
 
-csharpClassUnit::csharpClassUnit()
-{
+csharpClassUnit::csharpClassUnit( const std::string& name, Flags type ) : bufferClassUnit( name ) {
 
+}
+
+
+
+std::string csharpClassUnit::compile( unsigned int level) const {
+std::string result="";
+if( type_ & PUBLIC ) {
+    result += "public ";
+}else
+if( type_ & PRIVATE ) {
+result += "private ";
+}else
+if( type_ & PROTECTED ) {
+result += "protected ";
+}
+result = generateShift( level ) + "class " + m_name + " {\n";
+
+for( size_t i = 0; i < 4; ++i ) {
+if( m_fields[1<<i ].empty() ) {
+continue;
+}
+result += ACCESS_MODIFIERS[ i ] + ":\n";
+for( const auto& f : m_fields[1 << i ] ) {
+result += f->compile( level + 1 );
+}
+result += "\n";
+}
+result += generateShift( level ) + "};\n";
+return result;
 }

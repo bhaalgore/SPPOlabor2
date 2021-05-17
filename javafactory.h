@@ -1,16 +1,16 @@
-#ifndef CSHARPFACTORY_H
-#define CSHARPFACTORY_H
+#ifndef JAVAFACTORY_H
+#define JAVAFACTORY_H
 
 #include "InterfaceFactory.h"
 
-#include "csharpclassunit.h"
-#include "csharpmethodunit.h"
-#include "csharpprintoperatorunit.h"
+#include "javaclassunit.h"
+#include "javamethodunit.h"
+#include "javaprintoperatorunit.h"
 
-class csharpFactory : public InterfaceFactory
+class javaFactory : public InterfaceFactory
 {
   public:
-   csharpFactory() = default;
+   javaFactory() = default;
 
         std::shared_ptr<bufferClassUnit> createClassUnit(const std::string& name, Flags flags) override;
 
@@ -19,5 +19,4 @@ class csharpFactory : public InterfaceFactory
         std::shared_ptr<Unit> createPrintOperatorUnit(const std::string& text) override;
 };
 
-
-#endif // CSHARPFACTORY_H
+#endif // JAVAFACTORY_H

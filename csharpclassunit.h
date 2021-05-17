@@ -1,11 +1,19 @@
 #ifndef CSHARPCLASSUNIT_H
 #define CSHARPCLASSUNIT_H
 
+#include <vector>
 
-class csharpClassUnit
+#include "bufferclassunit.h"
+
+class csharpClassUnit: public bufferClassUnit
 {
 public:
-    csharpClassUnit();
+ csharpClassUnit( const std::string& name, Flags flags);
+
+ std::string compile( unsigned int level = 0 ) const;
+
+private:
+ Flags type_;
 };
 
 #endif // CSHARPCLASSUNIT_H

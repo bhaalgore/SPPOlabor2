@@ -1,11 +1,16 @@
-#ifndef CPPPRINTOPERATORUNIT_H
-#define CPPPRINTOPERATORUNIT_H
+#ifndef PRINTOPERATORUNIT_H
+#define PRINTOPERATORUNIT_H
 
+#include <iostream>
 
-class cppPrintOperatorUnit
-{
+#include "unit.h"
+
+class cppPrintOperatorUnit : public Unit {
 public:
-    cppPrintOperatorUnit();
+ explicit cppPrintOperatorUnit( const std::string& text );
+ std::string compile( unsigned int level ) const;
+private:
+ std::string m_text;
 };
 
-#endif // CPPPRINTOPERATORUNIT_H
+#endif // PRINTOPERATORUNIT_H

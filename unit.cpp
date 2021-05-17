@@ -1,6 +1,6 @@
 #include "unit.h"
 
-void Unit::add( const std::shared_ptr< Unit >& , Flags = 0)
+void Unit::add( const std::shared_ptr< Unit >& , Flags flags)
 {
      throw std::runtime_error("Not supported");
 }
